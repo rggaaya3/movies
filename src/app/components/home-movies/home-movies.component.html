@@ -1,0 +1,33 @@
+
+<div class="container">
+  <div class="row mt-2">
+    <p></p>
+    <p></p>
+    <div class="col-md-3" *ngFor="let movie of allMovies; let i = index">
+      <div class="card mb-4 shadow-sm" (mouseover)="showOverlay(i)">
+        <img (click)="viewMovie(movie)" src="{{ movie.imageUrl ? movie.imageUrl : 'assets/avatar.png' }}"
+          [ngClass]="{ 'no-image': !movie.imageUrl }" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{ movie.name }}</p>
+          <div class="overlay" *ngIf="showOverlayIndex === i" (click)="overlayClickHandler($event)">
+            <!-- Add, view, and other icons here -->
+            <span class="icon" *ngIf="!isFav(movie.id)" (click)="addToFavorites(movie)"><i class="fa fa-heart"
+                title="Add to Favorites"></i></span>
+            <span class="icon" *ngIf="isFav(movie.id)" (click)="removeFromFav(movie)"><i class="fa fa-times"
+                title="Remove from Favorites"></i></span>
+
+            <span (click)="viewMovie(movie)" class="icon"><i class="fa fa-eye" title="View Details"></i></span>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="allMovies&& allMovies.length === 0">
+      No movies found
+    </div>
+    <div *ngIf="errormsg">
+      {{errormsg}}
+    </div>
+  </div>
+</div>

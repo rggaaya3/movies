@@ -1,0 +1,102 @@
+    /* You can add global styles to this file, and also import other style files */
+
+    body {
+        background-color: black !important;
+        color: white !important;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+    }
+
+    .fa-eye,
+    .fa-heart,
+    .fa-times,
+    .icon {
+        font-size: 30px;
+        cursor: pointer;
+
+    }
+
+    a,
+    .nav-link {
+        cursor: pointer !important;
+
+        color: #3dc9e5 !important;
+
+        &:hover {
+            cursor: pointer !important;
+            text-decoration: underline;
+        }
+    }
+
+    .fa-eye,
+    .fa-heart,
+    .fa-times {
+        &:hover {
+            font-size: 35px;
+            color: #3dc9e5;
+        }
+    }
+
+
+    .card-text {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* loading-overlay.component.css */
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent white background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        z-index: 99999;
+    }
+
+    .spinner {
+        /* Style your loading spinner here */
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 10px solid rgba(230, 230, 230, .3);
+        border-radius: 50%;
+        border-top-color: #3dc9e5;
+        animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    h6 {
+        color: wheat !important;
+    }
+
+    .form-control:focus {
+        box-shadow: none !important
+    }
+
+    .dropdown-menu {
+        overflow-y: auto;
+        max-height: 350px;
+        min-height: auto;
+        width: 210px !important;
+    }

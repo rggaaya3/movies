@@ -1,0 +1,35 @@
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="movieModalLabel">{{selectedMovie.name}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="dismiss()">X</button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{selectedMovie.imageUrl ? selectedMovie.imageUrl : 'assets/avatar.png'}}"  [ngClass]="{ 'no-image': !selectedMovie.imageUrl }" class="img-fluid" alt="Movie Poster">
+                </div>
+                <div class="col-md-8 details">
+                    
+                       
+                          <div><span class="highlight">Released On:</span> {{selectedMovie.releasedate ? selectedMovie.releasedate : ''}}</div>
+                         <div><span class="highlight">Directed By:</span> {{selectedMovie.director}}</div>
+                         <div><span class="highlight">Actors:</span> {{selectedMovie.actors.join(', ')}}</div>
+                         <div><span class="highlight">Genres:</span> {{selectedMovie.categories.join(', ')}}</div>
+                         <div><span class="highlight">Year:</span> {{selectedMovie.year === ''}}</div>
+                         <div><span class="highlight">Duration:</span> {{selectedMovie.runtime}} min</div>
+                         <div><span class="highlight">Storyline:</span> {{selectedMovie.storyline}}</div>
+                      
+                         <p></p>
+                    
+                    <button type="button" class="btn btn-success btn-md btn-block">
+                        <i class="fas fa-play"></i>
+                        Watch now on {{selectedMovie.platform}}
+                      </button>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="dismiss()">Close</button>
+        </div> -->
+    </div>

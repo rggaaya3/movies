@@ -1,0 +1,24 @@
+/* thumbnail-list.component.css */
+.overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+  }
+  
+  .card:hover .overlay {
+    display: flex;
+  }
+  
+  .icon {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  

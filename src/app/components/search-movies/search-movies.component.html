@@ -1,0 +1,56 @@
+<div class="top">
+
+    <form class="form-inline" style="display: flex;">
+        <div class="form-group mb-2 search-wrapper" >
+            <label for="searchField" class="sr-only">Search</label>
+            <input autocomplete="off" [disabled]="showAdvancedSearch" type="text" name="searchval" class="form-control" id="searchField" (input)="onChangeSearch()" [(ngModel)]="searchValue"
+                placeholder="Enter the title..">
+
+                    <span role="button" tabindex="0" *ngIf="searchValue"  (click)="onClose()" aria-label="Clear input" class="icon-close">x</span>
+        </div>
+        <button type="button" class="btn btn-outline-light" style="margin-left: 10px;" (click)="search()">
+            <i class="fas fa-search"></i>
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="toggleAdvancedSearch()">
+            <i class="fas fa-sliders-h"></i>
+        </button>
+    </form>
+
+
+    <div *ngIf="showAdvancedSearch" class="advanced">
+        <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <input id="typeahead-focus" type="text" class="form-control" [(ngModel)]="actorValue"
+                     [ngbTypeahead]="searchactor" (focus)="onFilterFocus($event, 'actor')" #instance="ngbTypeahead"
+               
+                     (selectItem)="onFilterSelect($event,'actor')" placeholder="Type an actor.." />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                
+                <input placeholder="Enter a Year.." type="text" min="1111" maxlength="4" minlength="4" class="form-control" id="yearInput" [(ngModel)]="yearValue">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <input id="typeahead-focus" type="text" class="form-control" [(ngModel)]="platformValue"
+                [ngbTypeahead]="searchplatform" (focus)="onFilterFocus($event, 'platform')" #instance="ngbTypeahead"
+               
+                (selectItem)="onFilterSelect($event,'platform')" placeholder="Type a platform.." />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <input id="typeahead-focus" type="text" class="form-control" [(ngModel)]="genreValue"
+                [ngbTypeahead]="searchgenre" (focus)="onFilterFocus($event, 'genre')" #instance="ngbTypeahead"
+               
+                (selectItem)="onFilterSelect($event,'genre')" placeholder="Type a genre.." />
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+</div>
